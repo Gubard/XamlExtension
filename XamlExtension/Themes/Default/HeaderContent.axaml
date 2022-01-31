@@ -1,0 +1,32 @@
+<Style xmlns="https://github.com/avaloniaui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       xmlns:local="clr-namespace:XamlExtension"
+       Selector="local|HeaderContent">
+    <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+    <Setter Property="Template">
+        <ControlTemplate>
+            <Grid Name="{x:Static local:HeaderContent.ElementGrid}"
+                  Background="{TemplateBinding Background}"
+                  Margin="{TemplateBinding Padding}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <ContentPresenter Name="{x:Static local:HeaderContent.ElementHeaderContentPresenter}"
+                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                  Content="{TemplateBinding Header}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalHeaderAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalHeaderAlignment}"
+                                  Background="Black"
+                                  Opacity="0.3" />
+                <ContentPresenter Grid.Row="1"
+                                  Name="{x:Static local:HeaderContent.ElementContentPresenter}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  Content="{TemplateBinding Content}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </Grid>
+        </ControlTemplate>
+    </Setter>
+</Style>
